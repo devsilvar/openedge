@@ -1,0 +1,126 @@
+// Sample submission data for testing the admin dashboard
+// This simulates what would come from Google Sheets
+
+import type { Submission } from './googleSheetsApi';
+
+export const sampleSubmissions: Submission[] = [
+  // Health Check Submission 1
+  {
+    id: 2,
+    Timestamp: '2024-02-15T10:30:00',
+    FormType: 'Health Check',
+    fullName: 'Chinedu Okonkwo',
+    businessName: 'Grand Palace Hotel & Suites',
+    businessType: 'Hotel',
+    location: 'Victoria Island, Lagos',
+    phoneNumber: '08012345678',
+    email: 'chinedu@grandpalace.com',
+    yearsInOperation: '3-5 years',
+    staffSize: '20-50 staff',
+    total12MonthRevenue: 'N50M - N100M',
+    lastMonthRevenue: 'N5M - N10M',
+    monthlyProfitClarity: 'No - I do not have clear financial tracking',
+    operationalChallenges: 'Staff do not follow SOPs, Guest complaints are increasing, Revenue is unpredictable',
+    losingValueAreas: 'Cost leakages, Low occupancy rates, Staff turnover',
+  },
+  
+  // Health Check Submission 2
+  {
+    id: 3,
+    Timestamp: '2024-02-16T14:20:00',
+    FormType: 'Health Check',
+    fullName: 'Amaka Nwosu',
+    businessName: 'Bella Vista Restaurant & Lounge',
+    businessType: 'Restaurant',
+    location: 'Lekki Phase 1, Lagos',
+    phoneNumber: '08098765432',
+    email: 'amaka@bellavista.ng',
+    yearsInOperation: '1-2 years',
+    staffSize: '10-20 staff',
+    total12MonthRevenue: 'N20M - N50M',
+    lastMonthRevenue: 'N2M - N5M',
+    monthlyProfitClarity: 'Sort of - I track some numbers but not everything',
+    operationalChallenges: 'Cash flow problems, Manager does not take ownership, Supplier issues',
+    losingValueAreas: 'Food cost waste, Inventory shrinkage, Poor customer reviews',
+  },
+
+  // Training Application 1
+  {
+    id: 4,
+    Timestamp: '2024-02-17T09:15:00',
+    FormType: 'Training Application',
+    fullName: 'Oluwaseun Adebayo',
+    phoneNumber: '08123456789',
+    email: 'seun.adebayo@gmail.com',
+    currentRole: 'Supervisor',
+    yearsOfExperience: '3-5 years',
+    currentEmployer: 'Meridian Hotels Lagos',
+    targetRole: 'Operations Manager',
+    whyJoin: 'I want to move from being a supervisor to a true operations manager who can run a hotel independently. I see the gaps in my knowledge around financial management and systems, and I want to learn the structured approach that Open Edge teaches.',
+    currentChallenges: 'Managing staff accountability, Understanding P&L statements, Building effective systems',
+    hasLaptop: 'Yes',
+    canAttendLive: 'Yes - I can attend all sessions',
+    commitment: 'Fully committed - I will prioritize this',
+    accountability: 'Yes',
+  },
+
+  // Training Application 2
+  {
+    id: 5,
+    Timestamp: '2024-02-17T16:45:00',
+    FormType: 'Training Application',
+    fullName: 'Fatima Ibrahim',
+    phoneNumber: '08167891234',
+    email: 'fatima.ibrahim@outlook.com',
+    currentRole: 'Assistant Manager',
+    yearsOfExperience: '5-7 years',
+    currentEmployer: 'The Palms Restaurant & Bar',
+    targetRole: 'General Manager',
+    whyJoin: 'I have been managing food and beverage operations for years but I lack the formal training in hospitality systems and leadership. I want to become a GM who can build teams, implement systems, and drive profitability without owner interference.',
+    currentChallenges: 'Delegation and team building, Cost control strategies, Strategic planning',
+    hasLaptop: 'Yes',
+    canAttendLive: 'Yes - I can attend all sessions',
+    commitment: 'Fully committed - I will prioritize this',
+    accountability: 'Yes',
+  },
+
+  // Training Application 3
+  {
+    id: 6,
+    Timestamp: '2024-02-18T11:30:00',
+    FormType: 'Training Application',
+    fullName: 'Emeka Okafor',
+    phoneNumber: '08145678901',
+    email: 'emeka.okafor@yahoo.com',
+    currentRole: 'Front Desk Officer',
+    yearsOfExperience: '1-2 years',
+    currentEmployer: 'Sunrise Serviced Apartments',
+    targetRole: 'Front Office Manager',
+    whyJoin: 'I am currently at the front desk but I want to grow into a management role. I see how operations are broken in my current workplace and I want to learn the right way to do things so I can lead a department properly.',
+    currentChallenges: 'Leadership skills, Understanding operations beyond my department, Managing difficult situations',
+    hasLaptop: 'Yes',
+    canAttendLive: 'Maybe - depends on work schedule',
+    commitment: 'Interested but need to see full schedule first',
+    accountability: 'Not sure',
+  },
+
+  // Health Check Submission 3
+  {
+    id: 7,
+    Timestamp: '2024-02-18T13:00:00',
+    FormType: 'Health Check',
+    fullName: 'Tunde Bakare',
+    businessName: 'Elite Events Centre',
+    businessType: 'Event Centre',
+    location: 'Ikeja GRA, Lagos',
+    phoneNumber: '08056781234',
+    email: 'tunde@eliteevents.ng',
+    yearsInOperation: '5-10 years',
+    staffSize: '50+ staff',
+    total12MonthRevenue: 'N100M+',
+    lastMonthRevenue: 'N10M+',
+    monthlyProfitClarity: 'Yes - I have financial reports but still feel lost',
+    operationalChallenges: 'Middle management is weak, Profitability is inconsistent, Systems breakdown under pressure',
+    losingValueAreas: 'Operational inefficiencies, Quality control issues, Staff productivity',
+  },
+];

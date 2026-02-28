@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Google Sheets Integration Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      .test-section {
+        border: 2px solid #ddd;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+      }
+      .success {
+        border-color: #4caf50;
+        background: #f1f8f4;
+      }
+      .error {
+        border-color: #f44336;
+        background: #fef1f0;
+      }
+      .info {
+        border-color: #2196f3;
+        background: #e3f2fd;
+      }
+      button {
+        background: #2196f3;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #1976d2;
+      }
+      pre {
+        background: #f5f5f5;
+        padding: 10px;
+        border-radius: 4px;
+        overflow-x: auto;
+      }
+      .log {
+        margin: 10px 0;
+        padding: 10px;
+        background: white;
+        border-left: 4px solid #2196f3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔍 Google Sheets Integration Debugger</h1>
+
+    <div class="test-section info">
+      <h2>Step 1: Check Configuration</h2>
+      <p><strong>Google Script URL:</strong></p>
+      <pre id="scriptUrl">Loading...</pre>
+      <div id="urlStatus"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>Step 2: Test Connection</h2>
+      <button onclick="testConnection()">Test Google Script Connection</button>
+      <div id="connectionResult"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>Step 3: Submit Test Data</h2>
+      <button onclick="submitTestData()">Submit Test Health Check Form</button>
+      <div id="submitResult"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>Step 4: Fetch Data</h2>
+      <button onclick="fetchData()">Fetch Submissions from Sheet</button>
+      <div id="fetchResult"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>Debug Logs</h2>
+      <div id="logs"></div>
+    </div>
+
+    <script>
+      const SCRIPT_URL =
+        'https://script.google.com/macros/s/AKfycbykSfyMw0IslQv0AzJzL_p2UOsDP5BhkGji-E9pqq23ZrGstOHk2V9wKkljTpgm9rmhsg/exec';
+
+      function log(message, type = 'info') {
+        const logs = document.getElementById('logs');
+        const logDiv = document.createElement('div');
+        logDiv.className = 'log';
+        logDiv.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong>: ${message}`;
+        logs.appendChild(logDiv);
+        console.log(message);
+      }
+
+      // Check URL on load
+      window.onload = function () {
+        document.getElementById('scriptUrl').textContent = SCRIPT_URL;
+        if (SCRIPT_URL.includes('YOUR_SCRIPT_ID')) {
+          document.getElementById('urlStatus').innerHTML =
+            '<p style="color: red;">❌ Script URL not configured properly!</p>';
+        } else {
+          document.getElementById('urlStatus').innerHTML =
+            '<p style="color: green;">✅ Script URL looks good!</p>';
+        }
+      };
+
+      async function testConnection() {
+        const result = document.getElementById('connectionResult');
+        result.innerHTML = '<p>Testing connection...</p>';
+        log('Testing connection to Google Script...');
+
+        try {
+          const url = `${SCRIPT_URL}?action=get`;
+          log(`Sending GET request to: ${url}`);
+
+          const response = await fetch(url);
+          log(`Response status: ${response.status}`);
+
+          const data = await response.json();
+          log(`Response data: ${JSON.stringify(data)}`);
+
+          if (data.status === 'success') {
+            result.innerHTML = `
+                        <div class="test-section success">
+                            <h3>✅ Connection Successful!</h3>
+                            <p>The Google Script is responding correctly.</p>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+          } else {
+            result.innerHTML = `
+                        <div class="test-section error">
+                            <h3>⚠️ Script Responded with Error</h3>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+          }
+        } catch (error) {
+          log(`Error: ${error.message}`, 'error');
+          result.innerHTML = `
+                    <div class="test-section error">
+                        <h3>❌ Connection Failed</h3>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p>Possible issues:</p>
+                        <ul>
+                            <li>Script not deployed as Web App</li>
+                            <li>Script URL is incorrect</li>
+                            <li>setup() function not run in Apps Script</li>
+                            <li>CORS or permission issues</li>
+                        </ul>
+                    </div>
+                `;
+        }
+      }
+
+      async function submitTestData() {
+        const result = document.getElementById('submitResult');
+        result.innerHTML = '<p>Submitting test data...</p>';
+        log('Submitting test form data...');
+
+        const testData = {
+          formType: 'Health Check',
+          fullName: 'Test User',
+          businessName: 'Test Hotel',
+          businessType: 'Hotel',
+          location: 'Lagos',
+          phoneNumber: '+234 800 000 0000',
+          email: 'test@example.com',
+          yearsInOperation: '3-5 years',
+          staffSize: '11-20 staff',
+          total12MonthRevenue: '₦50M – ₦100M',
+          lastMonthRevenue: '₦5M – ₦20M',
+          monthlyProfitClarity: 'Yes, clearly',
+          operationalChallenges: [
+            "Staff don't follow processes consistently",
+            'Poor reporting and lack of supervision',
+          ],
+          losingValueAreas: [
+            'Poor controls and weak accountability',
+            'Theft, wastage, or untracked expenses',
+          ],
+        };
+
+        try {
+          const url = `${SCRIPT_URL}?action=post`;
+          log(`Sending POST request to: ${url}`);
+          log(`Data: ${JSON.stringify(testData, null, 2)}`);
+
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+              payload: JSON.stringify(testData),
+            }).toString(),
+          });
+
+          log(`Response status: ${response.status}`);
+          const data = await response.json();
+          log(`Response: ${JSON.stringify(data)}`);
+
+          if (data.status === 'success') {
+            result.innerHTML = `
+                        <div class="test-section success">
+                            <h3>✅ Test Data Submitted!</h3>
+                            <p>${data.message}</p>
+                            <p><strong>Check your Google Spreadsheet now!</strong></p>
+                            <p>Look for a sheet named "Submissions" with the test data.</p>
+                        </div>
+                    `;
+          } else {
+            result.innerHTML = `
+                        <div class="test-section error">
+                            <h3>❌ Submission Failed</h3>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+          }
+        } catch (error) {
+          log(`Error: ${error.message}`, 'error');
+          result.innerHTML = `
+                    <div class="test-section error">
+                        <h3>❌ Submission Error</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+        }
+      }
+
+      async function fetchData() {
+        const result = document.getElementById('fetchResult');
+        result.innerHTML = '<p>Fetching data...</p>';
+        log('Fetching submissions from Google Sheets...');
+
+        try {
+          const url = `${SCRIPT_URL}?action=get`;
+          const response = await fetch(url);
+          const data = await response.json();
+
+          if (data.status === 'success') {
+            result.innerHTML = `
+                        <div class="test-section success">
+                            <h3>✅ Data Retrieved!</h3>
+                            <p><strong>Total Submissions:</strong> ${data.data ? data.data.length : 0}</p>
+                            <pre>${JSON.stringify(data.data, null, 2)}</pre>
+                        </div>
+                    `;
+          } else {
+            result.innerHTML = `
+                        <div class="test-section error">
+                            <h3>⚠️ No Data or Error</h3>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+          }
+        } catch (error) {
+          result.innerHTML = `
+                    <div class="test-section error">
+                        <h3>❌ Fetch Error</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+        }
+      }
+    </script>
+  </body>
+</html>

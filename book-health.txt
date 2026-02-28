@@ -1,0 +1,69 @@
+Book Health Check Form
+Business Owner Information
+1) Full Name
+2) Phone Number (WhatsApp)
+3) Email Address
+4) Business Name
+5) Business Type (Hotel / Short-let / Event Centre / Restaurant / Resort / Wellness)
+6) State Location
+Business Overview
+1) Years in operation
+2) Approximate staff size
+3) Approximately how much revenue did the business generate in the last 12 months?
+o Below ₦50 Million
+o ₦50M – ₦100M
+o ₦100M – ₦250M
+o ₦250M – ₦500M
+o ₦500M – ₦1B
+o Above ₦1B
+o I am not sure
+4) Approximately how much revenue did the business generate in the last month?
+o Below ₦5Million
+o ₦5M – ₦20M
+o ₦20M – ₦50M
+o ₦50M – ₦100M
+o ₦100M – ₦200M
+o Above ₦200M
+o I am not sure
+5) At the end of a typical month, can you clearly tell how much profit the business 
+made?
+o Yes, clearly
+o Roughly, but not confidently
+o No, I usually can’t tell
+o I rely on estimates or the bank balance
+o I only find out sometimes
+Operational Reality
+1) What is your biggest operational challenge today?
+o The business depends too much on me
+o Middle management is weak or unreliable
+o Staff don’t follow processes consistently
+o Revenue comes in, but profit is unclear
+o Not enough revenue. Sales is poor
+o Too many issues happen daily
+o Poor reporting and lack of supervision
+o High staff turnover
+o Theft, wastage, or revenue leakage
+o Service quality is inconsistent
+o We have grown, but operations haven’t caught up
+o I am not sure. Things just feel disorganized
+2) Where do you feel you are losing the most value?
+o Poor controls and weak accountability
+o Theft, wastage, or untracked expenses
+o Inefficient staff and poor supervision
+o My time and energy as owner
+o Missed revenue opportunities
+o Poor guest experience leading to repeat losses
+o Poor procurement and vendor management
+o Training gaps and constant retraining
+o Bad decisions due to lack of accurate information
+o I can’t clearly tell where the loss is
+
+
+
+Button:
+Submit and Request Health Check Review
+What Happens After You Submit
+• We review your information within 48 hours
+• If your business qualifies, we contact you to schedule the full in-person assessment
+• If it doesn’t, we will let you know clearly and respectfully
+ 

@@ -1,0 +1,89 @@
+Open Edge Training Application Form
+This programme is selective. We train operators we believe can actually run hospitality 
+businesses properly.
+1. Full Name
+(short text)
+2. Phone Number (WhatsApp enabled)
+(short text)
+3. Email Address
+(short text)
+4. Current City
+(dropdown)
+• Lagos
+• Abuja
+• Port Harcourt
+• Ibadan
+• Benin
+• Warri
+• Asaba
+• Other (specify)
+5. Which role are you applying to be trained for?
+Note: Training is role-specific. Choose the role you are most capable of performing.
+• Head of Operations
+• Housekeeping Supervisor
+• Front Office Supervisor
+• Facility and Maintenance Supervisor
+• Cost Control Officer
+6. What best describes your current situation?
+• Currently working in a hospitality business
+• Previously worked in hospitality, currently between roles
+• Currently supervising others in hospitality
+• Owner/operator seeking structured operational training
+• Looking to transition into hospitality operations
+7. How many years of hands-on hospitality experience do you have?
+• Less than 1 year
+• 1–3 years
+• 3–5 years
+• 5–10 years
+• 10+ years
+8. What type of hospitality business have you worked in most? (multi-select)
+• Hotel
+• Short-stay / serviced apartments
+• Restaurant / lounge
+• Event venue
+• Mixed-use hospitality
+• None yet
+9. Which statement best describes how you approach your work?
+• I follow instructions and do my part well
+• I take ownership of outcomes, not just tasks
+• I solve problems even when it’s not my job
+• I want to grow into senior operational leadership
+• I just need any opportunity right now
+10. Have you ever been responsible for supervising people or processes?
+• Yes, people and processes
+• Yes, people only
+• Yes, processes only
+• No, but I’m ready to learn
+11. What do you believe is the biggest problem in most hospitality businesses today?
+• Weak systems
+• Poor supervision and accountability
+• Theft and revenue leakage
+• Untrained staff
+• Owners interfering too much
+• I’m not sure yet
+12. Can you commit to the full training schedule?
+• Yes, fully available
+• Yes, but with notice
+• No, my availability is uncertain
+13. Are you open to being deployed to a hospitality business after training?
+• Yes, immediately
+• Yes, within 1–3 months
+• Only if conditions are right
+• No
+14. This training is free but selective. Why do you want to join Open Edge? (textbox)
+15. Which best describes what you are looking for?
+• A serious career path in hospitality operations
+• Skills to become a strong supervisor or manager
+• Exposure and placement in a well-run business
+• Any opportunity available
+16. Are you willing to be held accountable to Open Edge hospitality standards, systems, 
+and performance?
+• Yes
+• Not sure
+• No
+Submission Confirmation (After Submit)
+What happens next:
+• Applications are reviewed weekly
+• Shortlisted candidates will be contacted for a screening call
+• Only qualified applicants are admitted into each cohort
+CTA Button: Apply to Join the Cohort

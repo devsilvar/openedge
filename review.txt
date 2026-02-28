@@ -1,0 +1,6 @@
+new review ----
+
+2. Replace the images in the hero section and our solution section with the logo
+3. Consider having a shaded background for the navigation tabs -- this is the hover state.. make it a colored background a light blue color
+4.a. Check spelling of Training on the navigation tab
+b. Please use Operations and not Ops

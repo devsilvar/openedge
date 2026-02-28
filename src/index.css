@@ -1,0 +1,699 @@
+@import 'tailwindcss';
+
+:root {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #1f2937;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family:
+    'Montserrat',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@theme {
+  --color-navBg: #f3f4f6;
+  --color-brandBlue: #2563eb;
+  --color-brandBlueSoft: #3b82f6;
+  --color-navText: #111827;
+  --color-navMuted: #6b7280;
+
+  --color-bg: #f3f4f6;
+  --color-heading: #1f2937;
+  --color-muted: #6b7280;
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-secondary-btn: #e5e7eb;
+  --color-border-light: #e5e7eb;
+
+  --container-width: 1100px;
+  --container-max: 1280px;
+  --container-big: 1320px;
+
+  --color-deepBg: #0b1c3d;
+  --color-deepBgSoft: #0e224b;
+
+  --color-cardBg: rgba(255, 255, 255, 0.04);
+  --color-cardBorder: rgba(255, 255, 255, 0.08);
+
+  --color-accentBlue: #2f6bff;
+
+  --color-textPrimary: #f8fafc;
+  --color-textSecondary: rgba(248, 250, 252, 0.65);
+  --color-textMuted: rgba(248, 250, 252, 0.5);
+
+  --font-sans: 'Open Sans', system-ui, sans-serif;
+  --font-display: 'Montserrat', system-ui, sans-serif;
+}
+
+/* ===================================
+   CONVERSION-FOCUSED ANIMATIONS
+   =================================== */
+
+/* Magnetic Button Effect */
+@keyframes magneticPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
+  }
+}
+
+.btn-magnetic {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-magnetic:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.btn-magnetic:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Attention Pulse for Primary CTAs */
+@keyframes attentionPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-attention {
+  animation: attentionPulse 2s ease-in-out infinite;
+}
+
+.btn-attention:hover {
+  animation: none;
+}
+
+/* Ripple Effect on Click */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+}
+
+.btn-ripple:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+/* Card Hover Effects */
+.card-magnetic {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-magnetic:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Glow Effect for Important Elements */
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.6);
+  }
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Scroll Reveal Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-on-scroll {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Shimmer Loading Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Bounce Attention */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce-animation {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Number Counter Animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count-up {
+  animation: countUp 0.5s ease-out;
+}
+
+/* Tilt on Hover (3D effect) */
+.tilt-3d {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.tilt-3d:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Progress Bar Animation */
+@keyframes progressBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.progress-animate {
+  animation: progressBar 1s ease-out forwards;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-in;
+}
+
+/* Slide In from Right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.4s ease-out;
+}
+
+/* Shake Error Animation */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+/* Idle Pulse Animation - Grabs attention when user is idle */
+@keyframes idle-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 20px 35px -5px rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* Stagger Animation for Cards */
+@keyframes fadeInUpStagger {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-1 {
+  animation: fadeInUpStagger 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+.stagger-2 {
+  animation: fadeInUpStagger 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+.stagger-3 {
+  animation: fadeInUpStagger 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+.stagger-4 {
+  animation: fadeInUpStagger 0.6s ease-out 0.4s forwards;
+  opacity: 0;
+}
+.stagger-5 {
+  animation: fadeInUpStagger 0.6s ease-out 0.5s forwards;
+  opacity: 0;
+}
+.stagger-6 {
+  animation: fadeInUpStagger 0.6s ease-out 0.6s forwards;
+  opacity: 0;
+}
+.stagger-7 {
+  animation: fadeInUpStagger 0.6s ease-out 0.7s forwards;
+  opacity: 0;
+}
+.stagger-8 {
+  animation: fadeInUpStagger 0.6s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
+/* Slide In From Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+/* Zoom In Animation */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.6s ease-out forwards;
+}
+
+/* Rotate In Animation */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+.rotate-in {
+  animation: rotateIn 0.6s ease-out forwards;
+}
+
+/* Pulse Ring Animation - For Trust Badges */
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid currentColor;
+  animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Parallax Scroll Effect */
+.parallax-slow {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle Breathing Animation */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Draw Line Animation */
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-line {
+  stroke-dasharray: 1000;
+  animation: drawLine 2s ease-out forwards;
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 40px rgba(59, 130, 246, 0.8),
+      0 0 60px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.idle-pulse {
+  animation: idle-pulse 2s ease-in-out infinite;
+}
+
+Tool call argument 'replace' pruned from message history. .shake-error {
+  animation: shake 0.5s;
+}
+
+/* ===================================
+   DISTRACTINGLY ATTENTION-GRABBING LOGO ANIMATION
+   =================================== */
+
+/* Continuous wild bouncing - never stops moving */
+@keyframes logoDistractingFloat {
+  0% {
+    transform: translateY(0px) scale(1) rotate(0deg);
+  }
+  10% {
+    transform: translateY(-15px) scale(1.08) rotate(-5deg);
+  }
+  20% {
+    transform: translateY(-5px) scale(0.95) rotate(5deg);
+  }
+  30% {
+    transform: translateY(-25px) scale(1.12) rotate(-8deg);
+  }
+  40% {
+    transform: translateY(-8px) scale(0.93) rotate(8deg);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1) rotate(-6deg);
+  }
+  60% {
+    transform: translateY(-3px) scale(0.97) rotate(4deg);
+  }
+  70% {
+    transform: translateY(-18px) scale(1.07) rotate(-4deg);
+  }
+  80% {
+    transform: translateY(-6px) scale(0.96) rotate(3deg);
+  }
+  90% {
+    transform: translateY(-12px) scale(1.04) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0px) scale(1) rotate(0deg);
+  }
+}
+
+/* Premium Luxury Logo Animation */
+.logo-float-animation {
+  animation: luxuryFloat 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+@keyframes luxuryFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.02);
+  }
+}
+
+@keyframes luxuryShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes luxuryGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 40px rgba(37, 99, 235, 0.2),
+      0 0 80px rgba(37, 99, 235, 0.12),
+      inset 0 0 40px rgba(37, 99, 235, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 70px rgba(37, 99, 235, 0.35),
+      0 0 140px rgba(37, 99, 235, 0.2),
+      inset 0 0 60px rgba(37, 99, 235, 0.12);
+  }
+}
+
+.logo-glow-container {
+  animation: luxuryGlow 2s ease-in-out infinite;
+}
+
+.logo-glow-container::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 1.15rem;
+  border: 2px solid rgba(37, 99, 235, 0.4);
+  animation: luxuryPulse 2s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.logo-glow-container::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 1.35rem;
+  border: 1.5px solid rgba(59, 130, 246, 0.3);
+  animation: luxuryPulse 2s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+@keyframes luxuryPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.03);
+  }
+}
+
+.logo-glow-middle {
+  position: absolute;
+  inset: -9px;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  animation: luxuryPulse 2s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.logo-glow-container:hover {
+  animation: none;
+  box-shadow:
+    0 0 80px rgba(37, 99, 235, 0.5),
+    0 0 160px rgba(37, 99, 235, 0.3),
+    inset 0 0 60px rgba(37, 99, 235, 0.15);
+}
+
+.logo-glow-container:hover .logo-float-animation {
+  animation: none;
+  transform: scale(1.1);
+}
+
+/* Success Checkmark */
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkmark-animate {
+  stroke-dasharray: 100;
+  animation: checkmark 0.5s ease-in-out forwards;
+}
