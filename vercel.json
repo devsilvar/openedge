@@ -1,0 +1,6 @@
+{
+  "output": "static",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
