@@ -1,4 +1,4 @@
-import { consultationIcon, duborLogo, logo } from '@/assets';
+import { consultationIcon, logo } from '@/assets';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface Feature {
