@@ -15,6 +15,7 @@ import TrainingForm from './pages/TrainingForm';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLogin from './pages/AdminLogin';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminLayout from './components/AdminLayout';
 import { initAnalytics } from './utils/analytics';
 
 const router = createBrowserRouter([
@@ -55,28 +56,30 @@ const router = createBrowserRouter([
         element: <TrainingForm />,
       },
       {
-        path: 'admin/login',
-        element: <AdminLogin />,
-      },
-      {
-        path: 'admin/dashboard',
-        element: (
-          <ProtectedRoute>
-            <AdminDashboard />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: 'admin',
-        element: (
-          <ProtectedRoute>
-            <AdminDashboard />
-          </ProtectedRoute>
-        ),
-      },
-      {
         path: '*',
         element: <NotFound />,
+      },
+    ],
+  },
+  {
+    path: '/admin/login',
+    element: <AdminLogin />,
+  },
+  {
+    path: '/admin',
+    element: (
+      <ProtectedRoute>
+        <AdminLayout />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: <AdminDashboard />,
+      },
+      {
+        path: 'dashboard',
+        element: <AdminDashboard />,
       },
     ],
   },
